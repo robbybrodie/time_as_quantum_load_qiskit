@@ -33,3 +33,5 @@ dist/
 configs/local.overrides.yaml
 .env
 .env.*
+.secrets_key
+.secrets_key.pub

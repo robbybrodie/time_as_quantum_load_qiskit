@@ -1,0 +1,12 @@
+ibmq:
+  instance: "<CRN or hub/group/project if needed>"
+  channel: "ibm_quantum"
+  token_env: "IBM_QUANTUM_TOKEN"   # user sets this env var
+
+runtime:
+  max_shots: 4000
+  default_primitive: "sampler"     # or "estimator"
+
+backend:
+  name: "ibm_sherbrooke"           # placeholder; user can change
+  simulate_fallback: true

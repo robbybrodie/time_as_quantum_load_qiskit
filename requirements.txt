@@ -1,3 +1,24 @@
-qiskit
-qiskit-ibm-runtime
-python-dotenv
+# Project dependencies.
+# NOTE: This project uses the modern IBM Quantum Runtime client: `qiskit-ibm-runtime`.
+# The runtime client (qiskit-ibm-runtime) is the recommended way to access IBM Quantum
+# hardware/primitives (Estimator/Sampler V2). The older ibm-provider is deprecated/migrated —
+# use qiskit-ibm-runtime and the QiskitRuntimeService/IBMProvider APIs as shown in src/connect_ibm.py.
+#
+# Keep minimum/locked versions where present in the current venv; add reasonable minimums
+# for common extras used during development (simulators, plotting, notebooks).
+#
+qiskit==2.1.1
+qiskit-ibm-runtime==0.41.0
+qiskit-aer>=0.12.0
+
+# Core scientific packages (kept at versions present in the venv where available)
+numpy==2.3.2
+pydantic==2.11.7
+scipy==1.16.1
+
+# Utilities
+python-dotenv==1.1.1
+
+# Optional / development-friendly extras (not required if you only run scripts)
+matplotlib>=3.8.0
+jupyter>=1.0.0

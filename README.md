@@ -52,3 +52,28 @@ WARNING: keep your IBM Quantum API token secret. Do not commit it to git. Use en
 After the basic connection is working, we will:
 - Add examples that run small circuits on simulator and hardware via IBM runtime.
 - Add tests and scripts to experiment with computational load vs. simulated time-dilation metrics.
+
+## IBM Quantum runtime & token
+
+How to get your IBM Quantum API token
+1. Sign in to the IBM Quantum dashboard at https://quantum-computing.ibm.com.
+2. Open your account settings (click your avatar / account menu) and look for "API token" or "Credentials".
+3. If you don't have a token yet, create one from that page. Treat this token like a password.
+
+Set the token as an environment variable (recommended)
+- In zsh (temporary for the session):
+  - export IBM_QUANTUM_TOKEN="YOUR_REAL_IBM_QUANTUM_TOKEN"
+- To persist between sessions, add the export line to your shell profile (e.g., `~/.zshrc`) or use a local `.env` loaded by your environment. Never commit the token or any file containing it.
+
+What we use in this project
+- This project uses the `qiskit-ibm-runtime` package and the IBM runtime programming model (Session, Sampler, Estimator). See the qiskit-ibm-runtime project and docs for details:
+  - qiskit-ibm-runtime GitHub: https://github.com/Qiskit/qiskit-ibm-runtime
+  - Qiskit runtime docs: https://qiskit.org/documentation/partners/qiskit_ibm_runtime/
+  - IBM Quantum docs (overview & account): https://quantum-computing.ibm.com/docs
+
+Configuration files added
+- `configs/runtime.example.yaml` — example runtime configuration (contains `ibmq.instance`, `ibmq.token_env`, runtime defaults, and backend placeholder).
+- `configs/local.overrides.example.yaml` — per-user override template. Copy to `configs/local.overrides.yaml` for local, private overrides. This file is listed in `.gitignore` by default.
+
+Security reminder
+- The actual IBM Quantum API token must never be committed to GitHub or shared. If a token is accidentally exposed, rotate it immediately from the IBM Quantum dashboard.

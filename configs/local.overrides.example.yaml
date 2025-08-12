@@ -1,0 +1,21 @@
+# Per-user overrides (DO NOT COMMIT)
+# Copy this to `configs/local.overrides.yaml` and edit for your environment.
+# Keep your real API token out of git — use an environment variable instead.
+
+ibmq:
+  # If your account requires a CRN or hub/group/project, set it here:
+  instance: "<your CRN or hub/group/project if needed>"
+
+  # Name of the environment variable that contains your IBM Quantum API token.
+  # Recommended: set this in your shell rather than storing the token in this file.
+  token_env: "IBM_QUANTUM_TOKEN"
+
+runtime:
+  # You can adjust runtime settings per-user here
+  max_shots: 4000
+  default_primitive: "sampler"     # or "estimator"
+
+backend:
+  # Local preferred backend name (override the example placeholder)
+  name: "ibm_sherbrooke"
+  simulate_fallback: true
